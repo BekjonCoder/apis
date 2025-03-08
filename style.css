@@ -109,3 +109,30 @@ body{
     border: 3rem solid white;
     box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
 }
+.div{
+    width: 100%;
+    margin: 5rem 40%;
+
+}
+h1{
+    font-size: 3rem;
+    margin: 1rem 0;
+    width: 400px;
+
+}
+input{
+    padding: 1rem;
+    background-color: rgb(255, 187, 0);
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+button{
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+input::placeholder{
+    color: black;
+}
