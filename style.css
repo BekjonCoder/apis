@@ -19,8 +19,10 @@ body{
 }
 .container{
     display: flex;
-    flex-flow: column;
+    /* flex-flow: column; */
     align-items: center;
+    flex-wrap: wrap;
+    
 }
 
 .countries{
@@ -41,6 +43,8 @@ body{
     width: 30rem;
     border-radius: 0.7rem;
     margin: 0 3rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 .neighbour::before{
     content: 'Neighbour country';
