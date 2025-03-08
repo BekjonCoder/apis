@@ -126,13 +126,9 @@ input{
     border: none;
     border-radius: 10px;
     outline: none;
+    width: 400px;
 }
-button{
-    padding: 1rem;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
+
 input::placeholder{
     color: black;
 }

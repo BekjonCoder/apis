@@ -131,5 +131,4 @@ getCountryData('Luxembourg');
 getCountryData('Madagascar');
 getCountryData('Malawi');
 getCountryData('Malaysia');
-const input=document.getElementsByTagName('input')
-const btn=document.getElementsByTagName('button')
+  getCountryData('Liberia');
