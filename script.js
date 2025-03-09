@@ -193,17 +193,31 @@ const getCountryData = function (country) {
     });
 };
 
-// Input orqali mamlakat qidirish
 const countryInput = document.getElementById('countryInput');
 countryInput.addEventListener('input', () => {
-    const inputValue = countryInput.value.trim(); // Bo‘sh joylarni olib tashlash
+    const inputValue = countryInput.value.trim(); 
     if (inputValue !== '') {
-        countriesContainer.innerHTML = ''; // Avvalgi ma'lumotlarni o‘chirish
+        countriesContainer.innerHTML = ''; 
         getCountryData(inputValue);
+    }else{
+        const html = `
+         <article class="country">
+            <img class="country__img" src="${info.flags.png}" alt="Country Flag">
+            <div class="country__data">
+                <h3 class="country__name">${info.name.common}</h3>
+                <h4 class="country__region">${info.region}</h4>
+                <p class="country__row"><span>🧍‍♀️🧍‍♂️ </span>${(info.population / 1000000).toFixed(1)} mln</p>
+                <p class="country__row"><span>Capital: </span>${info.capital ? info.capital[0] : 'No Capital'}</p>
+                <p class="country__row"><span>StartOfWeek: </span>${info.startOfWeek}</p>
+            </div>
+         </article>
+        `;
+
+        countriesContainer.insertAdjacentHTML('beforeend', html);
+        countriesContainer.style.opacity = 1;
     }
 });
 
-// Dastlab ba'zi mamlakatlarni yuklash
 getCountryData('Uzbekistan');
 getCountryData('Russia');
 getCountryData('Italy');
