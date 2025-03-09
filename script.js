@@ -212,7 +212,6 @@ countryInput.addEventListener('input', () => {
             </div>
          </article>
         `;
-
         countriesContainer.insertAdjacentHTML('beforeend', html);
         countriesContainer.style.opacity = 1;
     }
