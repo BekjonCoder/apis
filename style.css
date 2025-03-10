@@ -132,3 +132,8 @@ input{
 input::placeholder{
     color: black;
 }
+
+.search-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
