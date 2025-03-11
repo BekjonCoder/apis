@@ -47,7 +47,7 @@ body{
     margin-bottom: 5rem;
 }
 .neighbour::before{
-    content: 'Neighbour country';
+    content: 'Qo`shni';
     width: 100%;
     position: absolute;
     top: -4rem;
@@ -57,7 +57,22 @@ body{
     text-transform: uppercase;
     color: #888;
 }
+.qushni::before{
+    content: 'Qo`shnini oxirgi qo`shnisi';
+    width: 90%;
+    position: absolute;
+    top: -4rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #888;
+}
 .neighbour{
+    transform: scale(0.8) translateY(1rem);
+    margin-left: 0;
+}
+.qushni{
     transform: scale(0.8) translateY(1rem);
     margin-left: 0;
 }
@@ -133,7 +148,3 @@ input::placeholder{
     color: black;
 }
 
-.search-container {
-    text-align: center;
-    margin-bottom: 20px;
-}

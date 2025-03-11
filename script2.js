@@ -24,10 +24,9 @@ const getCountryData = function (country) {
     request.send();
 
     request.addEventListener('load', () => {
-        const data = JSON.parse(request.responseText);
+        const data = JSON.parse(request.responseText);    
         const [info] = data;
         const [neighbour]=info.borders
-        
         renderCountry(info)
         const request2=new XMLHttpRequest()
         request2.open('GET',`https://restcountries.com/v3.1/alpha/${neighbour}`)
@@ -36,37 +35,19 @@ const getCountryData = function (country) {
         request2.addEventListener('load',()=>{
             const [neighbourInfo]=JSON.parse(request2.responseText) 
             renderCountry(neighbourInfo,'neighbour')
+
+            const qushni=neighbourInfo.borders[neighbourInfo.borders.length-1]
+            const request3=new XMLHttpRequest()
+            request3.open('GET',`https://restcountries.com/v3.1/alpha/${qushni}`)
+            request3.send()
+            request3.addEventListener('load',()=>{
+            const [qushniInfo]=JSON.parse(request3.responseText)
+            
+            renderCountry(qushniInfo,'qushni')
+        })
+            
         })
         
     });
 };
 getCountryData('uzbekistan')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// [
-//     'Uzbekistan', 'Russia', 'Italy', 'Germany', 'France', 'United Kingdom', 'United States', 'Egypt', 'Japan', 'India',
-//     'Kazakhstan', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Argentina', 'Armenia', 'Australia', 'Austria',
-//     'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan',
-//     'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia',
-//     'Cameroon', 'Canada', 'Cape Verde', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros',
-//     'Congo', 'Costa Rica', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica',
-//     'Dominican Republic', 'Ecuador', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini', 'Ethiopia',
-//     'Fiji', 'Finland', 'Gabon', 'Gambia', 'Georgia', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea',
-//     'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'Indonesia', 'Iran', 'Iraq', 'Ireland',
-//     'Jamaica', 'Jordan', 'Kenya', 'Kiribati', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho',
-//     'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Madagascar', 'Malawi', 'Malaysia','Bahamas'
-// ].forEach(getCountryData)
