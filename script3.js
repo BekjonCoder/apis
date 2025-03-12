@@ -35,6 +35,14 @@ const getCountryData = function (country) {
         
         request2.addEventListener('load',()=>{
             const [neighbourInfo]=JSON.parse(request2.responseText) 
+            console.log(neighbourInfo);
+            a=neighbourInfo.languages.prs
+            
+
+
+            console.log(a);
+            
+            
             renderCountry(neighbourInfo,'neighbour')
         })
         
