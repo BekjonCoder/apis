@@ -51,7 +51,9 @@
 // getCountryData('uzbekistan')
 
 const data=fetch('https://restcountries.com/v3.1/name/uzbekistan').then(function(res){
-    console.log(res);
+    return res.json()
+}).then(function([data]){
+    console.log(data);
     
 })
 console.log(data);
