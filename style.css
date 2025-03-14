@@ -47,7 +47,7 @@ body{
     margin-bottom: 5rem;
 }
 .neighbour::before{
-    content: 'Qo`shni';
+    content: 'Qo`shnisi';
     width: 100%;
     position: absolute;
     top: -4rem;
@@ -148,3 +148,12 @@ input::placeholder{
     color: black;
 }
 
+button{
+    padding: 1.2rem;
+    color: white;
+    outline: none;
+    border: none ;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: red;
+}

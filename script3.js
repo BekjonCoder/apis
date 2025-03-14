@@ -1,4 +1,5 @@
 const countriesContainer=document.querySelector('.container') 
+const btn=document.querySelector('.btn-cuntry')
 const renderCountry=function(info,className=''){
     
 
@@ -18,6 +19,28 @@ const renderCountry=function(info,className=''){
         countriesContainer.insertAdjacentHTML('beforeend', html);
         countriesContainer.style.opacity = 1;
 }
+
+const getCountryData=function(country){
+    const data=fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(function(res){
+        return res.json()
+    }).then(function([data]){
+        renderCountry(data)
+        const [neighbour]=data.borders
+        return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`)
+    }).then(function(data){
+        return data.json()
+        
+    }).then(function([neighbour]){
+        renderCountry(neighbour,'neighbour')
+        
+    })
+}
+btn.addEventListener('click',()=>{
+    getCountryData('uzbekistan')
+})
+
+
 // const getCountryData = function (country) {
 //     const request = new XMLHttpRequest();
 //     request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
@@ -49,20 +72,3 @@ const renderCountry=function(info,className=''){
 //     });
 // };
 // getCountryData('uzbekistan')
-
-const data=fetch('https://restcountries.com/v3.1/name/uzbekistan').then(function(res){
-    return res.json()
-}).then(function([data]){
-    console.log(data);
-    renderCountry(data)
-    const [neighbour]=data.borders
-    return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`)
-}).then(function(data){
-    return data.json()
-    
-}).then(function([neighbour]){
-    console.log(neighbour);
-    renderCountry(neighbour,'neighbour')
-    
-})
-console.log(data);
