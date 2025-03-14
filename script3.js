@@ -34,6 +34,11 @@ const getCountryData=function(country){
     }).then(function([neighbour]){
         renderCountry(neighbour,'neighbour')
         
+    }).catch(function(err){
+        countriesContainer.insertAdjacentText('beforeend', `Something went wrong!`);
+        countriesContainer.style.opacity = 1;
+    }).finally(function(){
+        alert("Finally")
     })
 }
 btn.addEventListener('click',()=>{
